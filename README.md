@@ -1,5 +1,5 @@
 # arduino-mercadobitcoin-api
-A wrapper around the [MercadoBitcoin](https://www.mercadobitcoin.com.br/) API for Arduino (supports ESP8266).
+A wrapper around the [MercadoBitcoin.com.br](https://www.mercadobitcoin.com.br/) API for Arduino (supports ESP8266).
 
 The MercadoBitcoin API can be used to look information on crypto currency coins, included Bitcoin, Litecoin and Bitcoin Cash.
 
@@ -15,7 +15,7 @@ Code is as follows:
 MBTickerResponse response = api.GetTickerInfo(ticker);
 ```
 
-Ticker unfortunately is not the symbol for some reason. Go to [MercadoBitcoin](https://www.mercadobitcoin.com.br/api-doc/) and select the coin you would like to check, the ticker name makes up the last part of the URL. e.g: https://MercadoBitcoin.net/api/BTC/ticker/ , "BTC" is the cryptocurrency value.
+Ticker unfortunately is not the symbol for some reason. Go to [MercadoBitcoin.com.br](https://www.mercadobitcoin.com.br/api-doc/) and select the coin you would like to check, the ticker name makes up the last part of the URL. e.g: https://www.mercadobitcoin.net/api/BTC/ticker/ , "BTC" is the cryptocurrency value.
 
 Check out the currency on [MercadoBitcoin](https://www.mercadobitcoin.com.br/api-doc/) to get available values.
 
@@ -33,4 +33,3 @@ struct MBTickerResponse{
   String error;
 };
 ```
-### GetTickerInfo:
