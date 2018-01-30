@@ -1,48 +1,36 @@
-# arduino-coinmarketcap-api
-A wrapper around the [CoinMarketCap.com](http://coinmarketcap.com/) API for Arduino (supports ESP8266).
+# arduino-mercadobitcoin-api
+A wrapper around the [MercadoBitcoin](https://www.mercadobitcoin.com.br/) API for Arduino (supports ESP8266).
 
-The CoinMarketCap API can be used to look information on a wide range of crypto currency coins, included Bitcoin and Ethereum (check out the full list on their site).
+The MercadoBitcoin API can be used to look information on crypto currency coins, included Bitcoin, Litecoin and Bitcoin Cash.
 
 ## Usage
 
-The simplest way to see how it works is the check out [the example that comes with the library](https://github.com/witnessmenow/arduino-coinmarketcap-api/tree/master/examples/ESP8266/GetTickerInfo).
+The simplest way to see how it works is the check out [the example that comes with the library](https://github.com/SandroAkira/arduino-mercadobitcoin-api/blob/master/examples/ESP8266/GetTickerInfo/GetTickerInfo.ino).
 
 ### GetTickerInfo:
-A wrapper around the single ticker endpoint supporting the convert parameter (currency)
+A wrapper around the single ticker endpoint
 
 Code is as follows:
 ```
-CMCTickerResponse response = api.GetTickerInfo(ticker, "eur");
+MBTickerResponse response = api.GetTickerInfo(ticker);
 ```
 
-Ticker unfortunately is not the symbol for some reason. Go to [CoinMarketCap.com](http://coinmarketcap.com/) and select the coin you would like to check, the ticker name makes up the last part of the URL. e.g: https://coinmarketcap.com/currencies/bitcoin/ , "bitcoin" is the ticker value
+Ticker unfortunately is not the symbol for some reason. Go to [MercadoBitcoin](https://www.mercadobitcoin.com.br/api-doc/) and select the coin you would like to check, the ticker name makes up the last part of the URL. e.g: https://MercadoBitcoin.net/api/BTC/ticker/ , "BTC" is the cryptocurrency value.
 
-Currency is optional, so you can pass only ticker if you want.
-Check out the currency drop down on [CoinMarketCap.com](http://coinmarketcap.com/) to get available values
+Check out the currency on [MercadoBitcoin](https://www.mercadobitcoin.com.br/api-doc/) to get available values.
 
 The return object has the following values:
 ```
-struct CMCTickerResponse{
-  String id;
-  String name;
-  String symbol;
-  int rank;
-  float price_usd;
-  float price_btc;
-  float volume_usd_24h;
-  float market_cap_usd;
-  float available_supply;
-  float total_supply;
-
-  float percent_change_1h;
-  float percent_change_24h;
-  float percent_change_7d;
-  float last_updated;
-
-  float price_currency;
-  float volume_currency_24h;
-  float market_cap_currency;
+struct MBTickerResponse{
+  float high;
+  float low;
+  float last;
+  float vol;
+  float buy;
+  float sell;
+  float date;
 
   String error;
 };
 ```
+### GetTickerInfo:
