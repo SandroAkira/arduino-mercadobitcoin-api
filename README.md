@@ -1,5 +1,6 @@
 # arduino-mercadobitcoin-api
 A wrapper around the [MercadoBitcoin.com.br](https://www.mercadobitcoin.com.br/) API for Arduino (supports ESP8266).
+Forked from [CoinMarketCapApi](https://github.com/witnessmenow/arduino-coinmarketcap-api).
 
 The MercadoBitcoin API can be used to look information on crypto currency coins, included Bitcoin, Litecoin and Bitcoin Cash.
 
