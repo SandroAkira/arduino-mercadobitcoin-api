@@ -1,11 +1,10 @@
 #include <MercadoBitcoinApi.h>
 
 /*******************************************************************
- *  An example of getting ticker info from coinmarketcap.com       *
+ *  An example of getting ticker info from mercadobitcoin.com.br   *
  *                                                                 *
- *  Written by Brian Lough                                         *
+ *  Based on Brian Lough's CoinMarketCap library example           *
  *******************************************************************/
-
 
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
@@ -58,13 +57,6 @@ void printTickerData(String ticker) {
   Serial.println("---------------------------------");
 
 
-  // Ticker unfortunately is not the symbol for some reason.
-  // Go to CoinMarketCap.com and select the coin you would like to check
-  // The ticker name makes up the last part of the URL
-  // e.g: http://coinmarketcap.com/currencies/bitcoin/ , "bitcoin" is the ticker value
-
-  // Currency is optional, so you can pass only ticker if you want.
-  // Check out the currency drop down on CoinMarketCap.com to get available values
   MBTickerResponse response = api.GetTickerInfo(ticker);
   if (response.error == "") {
     Serial.print("High: ");
@@ -94,6 +86,7 @@ void loop() {
   if ((timeNow > api_due_time))  {
     printTickerData("BTC");
     printTickerData("LTC");
+    printTickerData("BCH");
     api_due_time = timeNow + api_mtbs;
   }
 }
